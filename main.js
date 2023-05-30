@@ -1,71 +1,70 @@
-let bookList = localStorage.getItem('bookList')
-  ? JSON.parse(localStorage.getItem('bookList'))
-  : [
-    {
-      id: 1,
-      title: 'The Lord of the Rings',
-      author: 'J.R.R. Tolkien',
-    },
-    {
-      id: 2,
-      title: 'The Hobbit',
-      author: 'J.R.R. Tolkien',
-    },
-    {
-      id: 3,
-      title: "Harry Potter and the Philosopher's Stone",
-      author: 'J.K. Rowling',
-    },
-    {
-      id: 4,
-      title: 'Harry Potter and the Chamber of Secrets',
-      author: 'J.K. Rowling',
-    },
-  ];
+import Book from './modules/bookClass.js';
 
-function toLocalStorage() {
-  localStorage.setItem('bookList', JSON.stringify(bookList));
-}
+class BookList {
+  constructor() {
+    this.bookList = localStorage.getItem('bookList')
+      ? JSON.parse(localStorage.getItem('bookList'))
+      : [];
+  }
 
-function addBook(title, author) {
-  const newBook = {
-    id: bookList.length + 1,
-    title,
-    author,
-  };
-  bookList.push(newBook);
-  toLocalStorage();
-}
-function removeBook(id) {
-  bookList = bookList.filter((book) => book.id !== id);
-  toLocalStorage();
-}
+  toLocalStorage() {
+    localStorage.setItem('bookList', JSON.stringify(this.bookList));
+  }
 
-const bookListElement = document.getElementsByClassName('booksList')[0];
+  addBook(title, author) {
+    const newBook = new Book(this.bookList.length + 1, title, author);
+    this.bookList.push(newBook);
+    this.toLocalStorage();
+  }
 
-function renderBookList() {
-  bookListElement.innerHTML = '';
-  bookList.forEach((book) => {
-    const bookElement = document.createElement('article');
-    bookElement.classList.add('bookList__book');
-    bookElement.innerHTML = `
-        <p class="bookList__book__name">${book.title}</p>
-        <p class="bookList__book__author">${book.author}</p>`;
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('bookList__book__delete');
-    deleteButton.innerText = 'Remove';
+  removeBook(id) {
+    this.bookList = this.bookList.filter((book) => book.id !== id);
+    this.toLocalStorage();
+  }
 
-    deleteButton.addEventListener('click', () => {
-      removeBook(book.id);
-      renderBookList();
+  renderBookList() {
+    const bookListElement = document.getElementsByClassName('booksList')[0];
+    bookListElement.innerHTML = '';
+
+    const bookListTable = document.createElement('table');
+    bookListTable.classList.add('bookList__table');
+
+    this.bookList.forEach((book, index) => {
+      const row = document.createElement('tr');
+
+      // Apply different background colors based on odd/even row index
+      if (index % 2 === 0) {
+        row.classList.add('even-row');
+      } else {
+        row.classList.add('odd-row');
+      }
+
+      const bookCell = document.createElement('td');
+      bookCell.innerText = `"${book.title}" by ${book.author}`;
+      row.appendChild(bookCell);
+
+      const deleteCell = document.createElement('td');
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('bookList__book__delete');
+      deleteButton.innerText = 'Remove';
+
+      deleteButton.addEventListener('click', () => {
+        this.removeBook(book.id);
+        this.renderBookList();
+      });
+
+      deleteCell.appendChild(deleteButton);
+      row.appendChild(deleteCell);
+
+      bookListTable.appendChild(row);
     });
 
-    bookElement.appendChild(deleteButton);
-    bookListElement.appendChild(bookElement);
-  });
+    bookListElement.appendChild(bookListTable);
+  }
 }
 
-renderBookList();
+const bookList = new BookList();
+bookList.renderBookList();
 
 const form = document.getElementById('addBookForm');
 form.addEventListener('submit', (event) => {
@@ -77,8 +76,8 @@ form.addEventListener('submit', (event) => {
   const bookAuthor = bookAuthorInput.value;
 
   if (bookName && bookAuthor) {
-    addBook(bookName, bookAuthor);
+    bookList.addBook(bookName, bookAuthor);
     form.reset();
-    renderBookList();
+    bookList.renderBookList();
   }
 });
