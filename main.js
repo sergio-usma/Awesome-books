@@ -1,27 +1,6 @@
 let bookList = localStorage.getItem('bookList')
   ? JSON.parse(localStorage.getItem('bookList'))
-  : [
-    {
-      id: 1,
-      title: 'The Lord of the Rings',
-      author: 'J.R.R. Tolkien',
-    },
-    {
-      id: 2,
-      title: 'The Hobbit',
-      author: 'J.R.R. Tolkien',
-    },
-    {
-      id: 3,
-      title: "Harry Potter and the Philosopher's Stone",
-      author: 'J.K. Rowling',
-    },
-    {
-      id: 4,
-      title: 'Harry Potter and the Chamber of Secrets',
-      author: 'J.K. Rowling',
-    },
-  ];
+  : [];
 
 function toLocalStorage() {
   localStorage.setItem('bookList', JSON.stringify(bookList));
