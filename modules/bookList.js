@@ -23,7 +23,7 @@ class BookList {
   }
 
   renderBookList() {
-    const bookListElement = document.getElementsByClassName('booksList')[0];
+    const bookListElement = document.getElementsByClassName('booksList__container')[0];
     bookListElement.innerHTML = '';
 
     const bookListTable = document.createElement('table');
