@@ -24,7 +24,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 1rem;
 }
 
@@ -38,18 +38,62 @@ a {
 }
 
 .navLinks li:nth-child(2) {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 1rem;
 }
 
-article {
-  padding: 1rem 0;
-  margin: 1rem;
-  border-bottom: 1px solid black;
+.booksList {
+  margin: auto;
+  padding: 1rem;
+}
+
+.bookList__table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.bookList__table tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+}
+
+.bookList__table td {
+  display: flex;
+  align-items: center;
+}
+
+.even-row {
+  background-color: lightgray;
+}
+
+.odd-row {
+  background-color: white;
+}
+
+.bookList__book__delete {
+  border: 2px solid black;
+  padding: 2px 1rem;
+  font-weight: 600;
+}
+
+.addBook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 form {
@@ -65,7 +109,20 @@ label {
   display: none;
 }
 
+input {
+  border: 2px solid black;
+}
+
 input[type="submit"] {
   width: 60px;
-  align-self: flex-start;
+  align-self: flex-end;
+  padding: 2px 1rem;
+  font-weight: 600;
+}
+
+.section_divider {
+  width: 10%;
+  height: 2px;
+  background-color: black;
+  margin: 1rem auto;
 }

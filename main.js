@@ -1,50 +1,7 @@
-let bookList = localStorage.getItem('bookList')
-  ? JSON.parse(localStorage.getItem('bookList'))
-  : [];
+import BookList from './modules/bookList.js';
 
-function toLocalStorage() {
-  localStorage.setItem('bookList', JSON.stringify(bookList));
-}
-
-function addBook(title, author) {
-  const newBook = {
-    id: bookList.length + 1,
-    title,
-    author,
-  };
-  bookList.push(newBook);
-  toLocalStorage();
-}
-function removeBook(id) {
-  bookList = bookList.filter((book) => book.id !== id);
-  toLocalStorage();
-}
-
-const bookListElement = document.getElementsByClassName('booksList')[0];
-
-function renderBookList() {
-  bookListElement.innerHTML = '';
-  bookList.forEach((book) => {
-    const bookElement = document.createElement('article');
-    bookElement.classList.add('bookList__book');
-    bookElement.innerHTML = `
-        <p class="bookList__book__name">${book.title}</p>
-        <p class="bookList__book__author">${book.author}</p>`;
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('bookList__book__delete');
-    deleteButton.innerText = 'Remove';
-
-    deleteButton.addEventListener('click', () => {
-      removeBook(book.id);
-      renderBookList();
-    });
-
-    bookElement.appendChild(deleteButton);
-    bookListElement.appendChild(bookElement);
-  });
-}
-
-renderBookList();
+const bookList = new BookList();
+bookList.renderBookList();
 
 const form = document.getElementById('addBookForm');
 form.addEventListener('submit', (event) => {
@@ -56,8 +13,8 @@ form.addEventListener('submit', (event) => {
   const bookAuthor = bookAuthorInput.value;
 
   if (bookName && bookAuthor) {
-    addBook(bookName, bookAuthor);
+    bookList.addBook(bookName, bookAuthor);
     form.reset();
-    renderBookList();
+    bookList.renderBookList();
   }
 });
