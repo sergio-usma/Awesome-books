@@ -131,7 +131,7 @@ You can deploy this project using your preferred deployment method. However we r
 
 - GitHub: [@sergio-usma](https://github.com/sergio-usma)
 - Twitter: [@VonUsma](https://twitter.com/vonusma)
-- LinkedIn: [Sergio Andres Usma](https://linkedin.com/in/sergioandresusma)
+- LinkedIn: [Sergio Andres Usma](https://www.linkedin.com/in/sergiousma/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
