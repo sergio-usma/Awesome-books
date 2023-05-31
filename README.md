@@ -5,8 +5,7 @@
   <img src="./assets/img/logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>First Capstone Project</b></h3>
-  <h4><i>"The World Tourism Summit 2023"</i></h4>
+  <h3><b>Awesome Books</b></h3>
 
 </div>
 
@@ -36,11 +35,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 First Capstone Project <a name="about-project"></a>
+# 📖 About the project<a name="about-project"></a>
 
-**The first capstone project** is a project to test the learn skills gain into "The portal" first module based on HTML, CSS and basic JavaScript. This project is part of the Microverse curriculum. The project contains a full description of The World Tourism Sumit 2023, that will have place in Bogota (Colombia) from 27th to 29th of november 2023 in CORFERIAS.
-
-In the future, more technologies will be added. Besides, includes a README file with the project description and two sections: one with the navigation bar, and another with author's name and links to the event and additional pages.
+**Awesome Books** is a basic website was built that allowed users to add/remove books from a list. This was achieved by using JavaScript objects and arrays. The DOM was dynamically modified and basic events were added.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -51,7 +48,7 @@ In the future, more technologies will be added. Besides, includes a README file 
 
 ### Tech Stack <a name="tech-stack"></a>
 
-In this project was only used HTML and CSS. More technologies Coming soon.
+In this project was only used HTML, CSS and plain JavaScript to the functionalities. More technologies Coming soon.
 
 <!-- Features -->
 
@@ -59,7 +56,7 @@ In this project was only used HTML and CSS. More technologies Coming soon.
 
 - **Semantic HTML**
 - **CSS**
-- **Responsive Design**
+- **Basic JavaScript**
 - **Use of DOM**
 - **Use of Linters**
 
@@ -69,7 +66,7 @@ In this project was only used HTML and CSS. More technologies Coming soon.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- If you want to see a preview from the project go and [click here!](https://sergio-usma.github.io/First_capstone_project/)
+- If you want to see a preview from the project go and [click here!](https://sergio-usma.github.io/Awesome-books/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,7 +93,11 @@ Clone this repository to your desired folder:
 
 2. Open a terminal window and navigate to the directory where you want to clone the repository.
 
-3. Type "git clone" in the terminal window, followed by a space and then paste the repository URL https://github.com/sergio-usma/First_capstone_project. Press "Enter" to clone the repository.
+3. Type "git clone" in the terminal window, followed by a space and then paste the repository URL. Press "Enter" to clone the repository.
+
+```angular2html
+git clone https://github.com/sergio-usma/Awesome-books.git
+```
 
 4. Verify that the repository has been cloned successfully by checking the contents of the directory where you cloned it.
 
@@ -141,9 +142,9 @@ You can deploy this project using your preferred deployment method. However we r
 
 These are the coming soon features for this project:
 
-1. [ ] Main program pop-ups.
-2. [ ] Newsletter and access to ultima news of the event.
-3. [ ] Reservations & login pages.
+1. [ ] A better UI/UX with images and animations.
+2. [ ] New section pages & functionalities.
+3. [ ] Use of JS classes & modules.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,7 +170,7 @@ If you like this project, please consider supporting us! Your support helps us t
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for his groundbreaking work on data visualization in his lessons. Also, is important recognize the Original Design by Cindy Shin in Behance https://www.behance.net/gallery/29845175/CC-Global-Summit-2015.
+I would like to thank Microverse for his groundbreaking work on data visualization in his lessons. I would also like to thank the code reviewers for their valuable feedback.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
