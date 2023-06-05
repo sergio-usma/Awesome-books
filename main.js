@@ -1,5 +1,6 @@
 import BookList from './modules/bookList.js';
-import showTime from './modules/showDate.js';
+import {DateTime} from './modules/luxon.js';
+
 
 // Get the navigation links and sections
 const listLink = document.querySelector('.list');
@@ -53,9 +54,9 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-const showDate = document.getElementById('showDate');
-const updateDate = showTime();
+function showTime() {
+  const dateSelector = document.getElementById('showDate');
+  dateSelector.textContent = DateTime.now().toFormat("LLLL d yyyy, hh:mm:ss a");
+}
 
-setInterval(() => {
-  showDate.innerHTML = updateDate();
-}, 1000);
+setInterval(showTime, 1000);
