@@ -1,7 +1,6 @@
 import BookList from './modules/bookList.js';
 import { DateTime } from './modules/luxon.js';
 
-// Get the navigation links and sections
 const listLink = document.querySelector('.list');
 const addLink = document.querySelector('.add');
 const contactLink = document.querySelector('.contactLink');
@@ -9,26 +8,26 @@ const booksListSection = document.querySelector('.booksList');
 const addBookSection = document.querySelector('.addBook');
 const contactSection = document.querySelector('.contact');
 
-function showBooksList(event) {
+const showBooksList = (event) => {
   event.preventDefault();
   booksListSection.style.display = 'block';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'none';
-}
+};
 
-function showAddBook(event) {
+const showAddBook = (event) => {
   event.preventDefault();
   booksListSection.style.display = 'none';
   addBookSection.style.display = 'block';
   contactSection.style.display = 'none';
-}
+};
 
-function showContact(event) {
+const showContact = (event) => {
   event.preventDefault();
   booksListSection.style.display = 'none';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'block';
-}
+};
 
 listLink.addEventListener('click', showBooksList);
 addLink.addEventListener('click', showAddBook);
@@ -53,9 +52,9 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-function showTime() {
+const showTime = () => {
   const dateSelector = document.getElementById('showDate');
   dateSelector.textContent = DateTime.now().toFormat('LLLL d yyyy, hh:mm:ss a');
-}
+};
 
 setInterval(showTime, 1000);
